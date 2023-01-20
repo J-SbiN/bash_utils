@@ -11,7 +11,7 @@ if [[ -z ${aws_profile} ]]; then
 fi
 
 all_vars_list=""
-vars_list="AWS_PROFILE aws_profile AWS_DEFAULT_PROFILE aws_default_profile"
+vars_list="AWS_PROFILE aws_profile AWS_DEFAULT_PROFILE aws_default_profile AWS_DEFAULT_REGION aws_default_region"
 
 case ${aws_profile} in
     gls-sb005)
@@ -31,7 +31,8 @@ case ${aws_profile} in
 	;;
     *)
         echo -e "\e[31;1m[ERROR]:\e[0m I do not know that profile."
-       	echo "Nothing done... Exited."
+       	aws_profile=""
+	echo "Nothing done... Exited."
 	return 1
         ;;
 esac
@@ -41,14 +42,24 @@ if ${unset_flag}; then
     aws sso logout
     unset ${vars_list}
     echo -e "Your AWS environment variables were \e[97;1mun\e[0mset."
+    echo "Here are your current AWS environment vars:"
+    echo "$(env | grep -E '^(AWS|aws)_')"
 else
+    aws sso logout
     export ${vars_list}
     echo -e "Your AWS environment variables were \e[97;1mset\e[0m."
+    echo "Here are your current AWS environment vars:"
+    echo "$(env | grep -E '^(AWS|aws)_')"
     aws sso login
+    if ! ${?} ; then
+        echo "Could not log you in. Reverting..."
+        aws sso logout
+        unset ${vars_list}
+	echo "Here are your current AWS environment vars:"
+        echo "$(env | grep -E '^(AWS|aws)_')"
+    fi
 fi
 
-echo "Here are your current AWS environment vars:"
-echo "$(env | grep -E '^(AWS|aws)_')".
 echo
 echo "Your current login is:"
 aws sts get-caller-identity
