@@ -15,7 +15,7 @@ function aws_set_profile () {
     options="${options::-2}"
     options+=")"
     
-    aws_profile="${1}"
+    local aws_profile="${1}"
     if [[ -z ${aws_profile} ]]; then
             aws_profile="${default_profile}"
             echo -e "\e[33;1m[WARN]:\e[0m No profile argument provided."
@@ -33,7 +33,9 @@ function aws_set_profile () {
         echo "$(env | grep -E '^(AWS|aws)_')"
     elif [[ "${aws_profile}" =~ ${options}  ]]; then
         aws sso logout
-        # export ${vars_list}
+        AWS_PROFILE="${aws_profile}"
+	AWS_DEFAULT_PROFILE="${aws_profile}"
+	# export ${vars_list}
         echo "export ${vars_list}" > "${tmp_file}"
         . ${tmp_file}
         echo -e "Your AWS environment variables were \e[97;1mset\e[0m."
