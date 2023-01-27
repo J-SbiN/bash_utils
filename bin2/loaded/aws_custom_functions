@@ -3,6 +3,8 @@
 function __aws_ps1 () {
     if ! [ -z "${aws_profile}" ]; then
         printf " (${aws_profile})";
+    elif ! [ -z "${AWS_PROFILE}" ]; then
+        printf " (${AWS_PROFILE})";
     fi
 }
 
@@ -15,7 +17,7 @@ function aws_set_profile () {
     options="${options::-2}"
     options+=")"
     
-    local aws_profile="${1}"
+    aws_profile="${1}"
     if [[ -z ${aws_profile} ]]; then
             aws_profile="${default_profile}"
             echo -e "\e[33;1m[WARN]:\e[0m No profile argument provided."
