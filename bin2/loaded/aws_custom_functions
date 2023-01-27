@@ -7,7 +7,55 @@ function __aws_ps1 () {
 }
 
 function aws_set_profile () {
-	. ${HOME}/gls/bin2/sourced/export-aws-env-vars.sh ${@}	
+    local default_profile="gls-sb005"
+    local unset_flag=false
+    local tmp_file="${HOME}/.aws/tmp_profile"
+    local options="(^"
+    options+="$(pcregrep -o1 "^\[profile (.*)\]$"  ~/.aws/config | sed ':a;N;$!ba;s/\n/$|^/g')"
+    options="${options::-2}"
+    options+=")"
+    
+    aws_profile="${1}"
+    if [[ -z ${aws_profile} ]]; then
+            aws_profile="${default_profile}"
+            echo -e "\e[33;1m[WARN]:\e[0m No profile argument provided."
+            echo "Using default '${aws_profile}'."
+    fi
+    
+    local all_vars_list=""
+    local vars_list="AWS_PROFILE aws_profile AWS_DEFAULT_PROFILE aws_default_profile AWS_DEFAULT_REGION aws_default_region"
+    
+    if [[ "${aws_profile}" =~ (null|unset) ]]; then
+        aws sso logout
+        unset ${vars_list}
+        echo -e "Your AWS environment variables were \e[97;1mun\e[0mset."
+        echo "Here are your current AWS environment vars:"
+        echo "$(env | grep -E '^(AWS|aws)_')"
+    elif [[ "${aws_profile}" =~ ${options}  ]]; then
+        aws sso logout
+        # export ${vars_list}
+        echo "export ${vars_list}" > "${tmp_file}"
+        . ${tmp_file}
+        echo -e "Your AWS environment variables were \e[97;1mset\e[0m."
+        echo "Here are your current AWS environment vars:"
+        echo "$(env | grep -E '^(AWS|aws)_')"
+        aws sso login || {
+            echo "Could not log you in. Reverting..."
+            aws sso logout
+            unset ${vars_list}
+            echo "Here are your current AWS environment vars:"
+            echo "$(env | grep -E '^(AWS|aws)_')"
+            }
+    else
+        echo -e "\e[31;1m[ERROR]:\e[0m I do not know that profile."
+        aws_profile=""
+        echo "Nothing done... Exited."
+        return 1
+    fi
+    
+    echo
+    echo "Your current login is:"
+    aws sts get-caller-identity
 }
 
 function aws_unset_profile () {
