@@ -2,8 +2,8 @@
 
 function _pssh () {
 	user="psw"
-	env="${1}"
-	nr="${2}"
+	env="${1}"; shift
+	nr="${1}"; shift
 	host="psw0${nr}-${env}"
-	ssh ${user}@${host}
+	ssh ${user}@${host} "${@:2}"
 }
