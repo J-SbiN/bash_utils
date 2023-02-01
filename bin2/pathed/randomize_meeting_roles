@@ -1,0 +1,93 @@
+#!/bin/bash
+
+roles="Facilitator Pacer DecisionDriver"
+psw_team="riro husi disc dilo misa jael neba shsr rest josa chte"
+psw_dev="husi disc dilo misa jael neba shsr rest josa"
+default_team="${psw_dev}"
+
+
+function help_me() {
+    echo "you shouldn't need any help here!..."
+}
+
+function add_participants() {
+    participants+=" ${1}"
+   # echo "parts update: $participants" 
+}
+
+function exclude_participants() {
+    for word in $(echo ${@}); do
+        participants="$(echo ${participants:=${default_team}} | sed -r "s/ ?${word} ?/ /g" )"
+    done
+}
+
+function participants_statistics() {
+    echo "I dare you to implement something here..."
+}
+
+function attribute_roles() {
+    # randomly sort participants
+    local parts="${1}"
+    local shufled_parts_length="0"
+
+    echo "Participants as received:     ${1}" | tr "\n" " "; echo
+    while [ ${shufled_parts_length} -lt 3 ]; do
+        shufled_parts="$(echo ${parts[@]:-${default_team}} | tr " " "\n" | shuf -n "$(echo ${roles} | wc -w )" | sort -u | shuf )"
+        shufled_parts_length="$(echo ${shufled_parts} | wc -w )"
+    done
+    echo "Randomly sorted participants: ${shufled_parts}" | tr "\n" " "; echo
+    # exit 0
+    
+    roles_arr=($roles)
+    parts_arr=($shufled_parts)
+    echo
+    for i in $(seq $(echo ${roles} | wc -w )); do
+	list+="$(echo -e "\n${roles_arr[${i}-1]}: ${parts_arr[${i}-1]}")"
+    done
+    echo "${list}" | column -t 
+}
+
+
+while [[ ${#} -gt 0 ]]; do
+    case ${1} in 
+        -a|--rep|--repeat|--add)
+                participants_to_add+=" ${2}"
+            shift; shift
+            ;;
+        -e|--rem|--remove|--exclude)
+            participants_to_remove+=" ${2}"
+            shift; shift
+            ;;
+        -h|--help|help)
+            help_me
+            exit 0
+            ;;
+        -t|--team)
+            participants_to_add+=" ${!2}"
+            shift; shift
+            ;;
+        -*|--*)
+            echo "Dude!...."
+            help_me
+            exit 1
+            ;;
+        *)
+            POSITIONAL_ARGS+=("${1}")
+            for word in $(echo ${1}); do
+                participants_to_add+=" ${word}"
+            done
+            shift
+            ;;
+    esac
+done
+set -- "${POSITIONAL_ARGS[@]}"
+
+
+# participants+=$(echo ${POSITIONAL_ARGS[*]})
+# echo "parts: $participants"
+# echo "parts_to_add: $participants_to_add"
+# echo "parts_to_rem: $participants_to_remove"
+
+[[ -z ${participants_to_add}    ]] || add_participants     "${participants_to_add}"
+[[ -z ${participants_to_remove} ]] || exclude_participants "${participants_to_remove}"
+attribute_roles "$(echo ${participants[@]})"
