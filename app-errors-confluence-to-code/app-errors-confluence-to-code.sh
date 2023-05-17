@@ -55,7 +55,7 @@ LINE_DESCRIPTION="${4}" # a digit
 
 # OUTPUTS #
 ###########
-OUT_DIR="./results-out/"
+OUT_DIR="./data/results-out/"
 FILE_OUT="${OUT_DIR}/errors-out.xml"
 IDS_OUTPUT="${OUT_DIR}/ids.xml"
 TITLES_OUTPUT="${OUT_DIR}/titles.xml"
@@ -117,3 +117,4 @@ echo > "${FILE_OUT}"
 cat "${TITLES_OUTPUT}" >> "${FILE_OUT}"
 cat "${DESCRIPTIONS_OUTPUT}" >> "${FILE_OUT}"
 cat "${IDS_OUTPUT}" >> "${FILE_OUT}"
+echo "All done!"
