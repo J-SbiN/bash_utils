@@ -236,7 +236,7 @@ function aws_profile_set () {
         aws sso logout
 
         # prep vars
-        sso_account_id="$(parse_aws_config_file "${aws_config_file}" "${aws_profile}" "sso_account_id")" 
+        sso_account_id="$(aws_config_file_parse -f "${aws_config_file}" "${aws_profile}" "sso_account_id")" 
         AWS_PROFILE="${aws_profile}"
         AWS_DEFAULT_PROFILE="${aws_profile}"
         GLS_AWS_ACCOUNT="${sso_account_id}"
