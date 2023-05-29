@@ -198,12 +198,29 @@ function aws_profile_set () {
     local unset_flag=false
     local tmp_file="${HOME}/.aws/tmp_profile"
     local default_config_file="${HOME}/.aws/config"
+    # all the variables that are set/unset by this function
+    local vars_list="AWS_PROFILE AWS_DEFAULT_PROFILE AWS_DEFAULT_REGION GLS_TF_WORKSPACE GLS_AWS_ACCOUNT"
+
 
     [[ $* =~ ^(.* )*help( .*)*$ ]]  &&  { _aws_profile_set_help "${default_profile}" "${default_config_file}"; return 0; } 
 
     # getting the input
     local aws_profile="${1}"
     local aws_config_file="${2}"
+
+    ## Checking the Unset Profile usecase
+    if [[ "${aws_profile}" =~ (null|unset) ]]; then
+        aws sso logout
+        unset ${vars_list}
+        echo -e "Your AWS environment variables were \e[97;1mun\e[0mset."
+        echo "Here are your current AWS environment vars:"
+        echo "$(env | grep -E '(^|_)(AWS|aws)')"
+
+        echo
+        echo "Your current login is:"
+        aws sts get-caller-identity
+        return 0
+    fi
 
     # Validating input
     if [[ -z ${aws_profile} ]]; then
@@ -221,17 +238,9 @@ function aws_profile_set () {
     options="${options::-2}"
     options+=")"
     
-    # all the variables that are set/unset by this function
-    local vars_list="AWS_PROFILE aws_profile AWS_DEFAULT_PROFILE aws_default_profile AWS_DEFAULT_REGION aws_default_region GLS_TF_WORKSPACE GLS_AWS_ACCOUNT"
 
-    ## Setting/unsetting the profile
-    if [[ "${aws_profile}" =~ (null|unset) ]]; then
-        aws sso logout
-        unset ${vars_list}
-        echo -e "Your AWS environment variables were \e[97;1mun\e[0mset."
-        echo "Here are your current AWS environment vars:"
-        echo "$(env | grep -E '(^|_)(AWS|aws)')"
-    elif [[ "${aws_profile}" =~ ${options}  ]]; then
+    ## Setting the Profile
+    if [[ "${aws_profile}" =~ ${options}  ]]; then
         # logout any previous account
         aws sso logout
 
@@ -256,16 +265,15 @@ function aws_profile_set () {
             echo "Here are your current AWS environment vars:"
             echo "$(env | grep -E '^(AWS|aws)_')"
             }
+        echo
+        echo "Your current login is:"
+        aws sts get-caller-identity
     else
         echo -e "\e[31;1m[ERROR]:\e[0m I do not know that profile."
         aws_profile=""
         echo "Nothing done... Exited."
         return 1
     fi
-    
-    echo
-    echo "Your current login is:"
-    aws sts get-caller-identity
 }
 
 # fetches the values for the available profiles
