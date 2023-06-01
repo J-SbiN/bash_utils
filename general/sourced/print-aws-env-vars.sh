@@ -1,6 +1,6 @@
 #!/bin/bash
 
-env_vars="$(env | grep -E '(aws|AWS)')"
+env_vars="$(env | grep -E '(^aws_|^AWS_)')"
 session_vars="$(compgen -v | grep -E '(aws|AWS)' | while read line; do echo $line=${!line};done)"
 if [ -z "${env_vars}" ]; then
     echo "You have no proxy variables configured on your environment."

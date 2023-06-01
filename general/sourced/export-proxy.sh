@@ -24,6 +24,9 @@ case ${arg} in
     pt)
         dns="proxy-pt.global.gls"
 	;;
+    gr)
+	dns="proxy.nst.gls-germnay.com"
+	;;
     null)
 	dns=""
 	;;
