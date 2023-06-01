@@ -1,0 +1,409 @@
+"ErrorNr"	"Technical Reason for Error"	"Type"	"short description EN"	"full errormessage EN"	"short description DE"	"Text DE"	"short description FR"	"Text FR"	"short description NL"	"Text NL"
+"E0001"	"Content of data matrix invalid"	"Dialogue box"	"Unknown barcode content"	"The barcode could not be read.
+
+Please make sure that you scanned the correct barcode."	"Inhalt des Barcodes unbekannt"	"Der Barcode konnte nicht gelesen werden.
+
+Bitte stellen Sie sicher, dass der richtige Barcode gescannt wurde."	"Contenu de code-barres inconnu"	"Le code-barres n'a pas pu être lu.
+
+Assurez-vous d'avoir scanné le bon code-barres."	"Onbekende barcode-inhoud"	"De streepjescode kon niet worden gelezen.
+
+Zorg ervoor dat u de juiste streepjescode hebt gescand."
+"E0002"	"Service and product combination not allowed for private customer"	"Dialogue box"	"Service not allowed"	"This type of service can not be accepted by a parcelshop when provided by a private customer.
+
+It is not included in the list of allowed services."	"Service nicht erlaubt"	"Das Paket kann nicht angenommen werden.
+
+Annahme des Pakets mit diesem Service ist nicht erlaubt, wenn es von bereitgestellt wird."	"Prestation non autorisée"	"Ce type de service ne peut être accepté par un point relais lorsqu'il est fourni par un client privé.
+
+Il n'est pas inclus dans la liste des services autorisés."	"Dienstverlening niet toegestaan"	"Dit type dienst kan niet worden aanvaard door een parcelshop wanneer deze wordt geleverd door een particuliere klant.
+
+Het is niet opgenomen in de lijst met toegestane services."
+"E0003"	"Service and product combination not allowed for business customer"	"Dialogue box"	"Service not allowed"	"This type of service can not be accepted by a parcelshop.
+
+It is not included in the list of allowed services."	"Service nicht erlaubt"	"Das Paket kann nicht angenommen werden.
+
+Annahme des Pakets mit dem Service ist nicht erlaubt, wenn es von Privatkunden bereitgestellt wird."	"Prestation non autorisée"	"Ce type de service ne peut pas être accepté par un point relais.
+
+Il n'est pas inclus dans la liste des services autorisés."	"Dienstverlening niet toegestaan"	"Dit type service kan niet worden geaccepteerd door een parcelshop.
+
+Het is niet opgenomen in de lijst met toegestane services."
+"E0004"	"Parcel not in preadvice state"	"Dialogue box"	"This parcel already exists"	"A parcel with this information was already accepted by GLS. It cannot be accepted another time.
+
+For more information please contact parcelshop support."	"Dieses Paket existiert bereits"	"Das Paket kann nicht angenommen werden.
+
+Ein Paket mit dem gleichen Informationen wurde bereits an GLS übergeben.
+
+Kontaktieren Sie den Paketshop Support für weitere Unterstützung."	"Ce colis existe déjà"	"Un colis avec ces informations a déjà été accepté par GLS. Il ne peut pas être accepté une autre fois.
+
+Pour plus d'informations, veuillez contacter l'assistance parcelshop."	"Dit perceel bestaat al"	"Een pakket met deze informatie is al geaccepteerd door GLS. Het kan niet een andere keer worden geaccepteerd.
+
+Neem voor meer informatie contact op met Parcelshop Support."
+"E0005"	"Customer and contact not valid"	"Dialogue box"	"Parcel is no longer valid"	"This parcel cannot be accepted, it is no longer valid.
+The sender needs to contact the issuer of the label to solve this problem."	"Das Paket ist nicht mehr gültig"	"Das Paket kann nicht angenommen werden, da das Label nicht mehr gültig ist.
+
+Der Kunde muss den Herausgeber des Labels kontaktieren."	"Le colis n'est plus valable"	"Ce colis ne peut être accepté, il n'est plus valable.
+L'expéditeur doit contacter l'émetteur de l'étiquette pour résoudre ce problème."	"Pakket is niet meer geldig"	"Dit pakket kan niet worden geaccepteerd, het is niet meer geldig.
+De afzender moet contact opnemen met de uitgever van het label om dit probleem op te lossen."
+"E0006"	"Content of QR Code not ok"	"Dialogue box"	"Parcel information could not be read"	"The QR code could not be read.
+
+Please try manual input."	"Paketinformationen konnten nicht gelesen werden"	"Der QR-Code konnte nicht gelesen werden.
+
+Bitte versuchen Sie es mit der manuellen Eingabe."	"Les informations sur le colis n'ont pas pu être lues"	"Le code QR n'a pas pu être lu.
+
+Veuillez essayer la saisie manuelle."	"Pakketinformatie kon niet worden gelezen"	"De QR-code kon niet worden gelezen.
+
+Probeer handmatige invoer."
+"E0007"	"Content of 1D Barcode not ok"	"Dialogue box"	"Parcel information could not be read"	"The barcode could not be read.
+
+Please try manual input."	"Paketinformationen konnten nicht gelesen werden"	"Der Barcode konnte nicht gelesen werden.
+
+Bitte versuchen Sie es mit der manuellen Eingabe."	"Les informations sur le colis n'ont pas pu être lues"	"Le code-barres n'a pas pu être lu.
+
+Veuillez essayer la saisie manuelle."	"Pakketinformatie kon niet worden gelezen"	"De streepjescode kon niet worden gelezen.
+
+Probeer handmatige invoer."
+"E0008"	"Input is not valid"	"Dialogue box"	"Unknown parcel ID"	"This parcel cannot be accepted.
+
+Please make sure that you scanned the correct barcode.
+
+Please contact parcelshop support if this issue persists."	"Unbekannte Paket ID"	"Der Barcode konnte nicht gelesen werden.
+
+Bitte stellen Sie sicher, dass der richtige Barcode gescannt wurde.
+
+Bitte kontaktieren Sie den Paketshop Support für weitere Hilfe."	"ID de colis inconnu"	"Ce colis ne peut pas être accepté.
+
+Assurez-vous d'avoir scanné le bon code-barres.
+
+Veuillez contacter l'assistance parcelshop si ce problème persiste."	"Onbekend pakket-ID"	"Dit pakket kan niet worden geaccepteerd.
+
+Zorg ervoor dat u de juiste streepjescode hebt gescand.
+
+Neem contact op met Parcelshop Support als dit probleem zich blijft voordoen."
+"E0009"	"Parcel can not be verified in offline mode"	"Dialogue box"	"Unknown parcel ID"	"Internet connection is required to verify this parcel.
+
+Please connect to the internet and try again."	"Unbekannte Paket ID"	"Eine Internetverbindung ist notwendig um dieses Paket zu prüfen.
+
+Bitte stellen Sie eine Verbindung zum Internet her und versuchen Sie es erneut."	"ID de colis inconnu"	"Une connexion Internet est nécessaire pour vérifier ce colis.
+
+
+Veuillez vous connecter à Internet et réessayer."	"Onbekend pakket-ID"	"Internetverbinding is vereist om dit pakket te verifiëren.
+
+
+Maak verbinding met internet en probeer het opnieuw."
+"E0010"	"Label is not attached to a parcel"	"Dialogue box"	"Label has to be attached to parcel"	"The parcel can only be handled by GLS if a label is attached to it.
+
+Ask the sender to attach a label to the parcel."	"Fehlendes Label"	"Das Paket kann nur angenommen werden, wenn ein GLS Label angebracht wurde.
+
+Bitte fordern Sie den Kunden auf das Label anzubringen."	"L'étiquette doit être attachée au colis"	"Le colis ne peut être pris en charge par GLS que si une étiquette y est attachée.
+
+Demandez à l'expéditeur de coller une étiquette sur le colis."	"Label moet aan het pakket worden bevestigd"	"Het pakket kan alleen worden geaccepteerd als er een GLS-label is bevestigd.
+
+Vraag de klant om het label te bevestigen."
+"E0011"	"Is not length of 8 (alphanumerical)"	"show below input field"	"Invalid track ID"	"Invalid input.
+
+Please make sure to enter the eight character long track ID. 
+
+For more information please contact parcelshop support."	"Ungültige Track ID"	"Eingabe ist ungültig.
+
+Prüfen Sie ob eine 8-stellige Track-ID eingegeben wurde. 
+
+Bitte kontaktieren Sie den Paketshop Support für weitere Hilfe."	"Track-ID non valide"	"Entrée invalide.
+
+Assurez-vous d'entrer l'Track-ID à huit caractères.
+
+Pour plus d'informations, veuillez contacter l'assistance parcelshop."	"Ongeldige track-ID"	"Ongeldige invoer.
+
+Zorg ervoor dat u de track-ID van acht tekens invoert.
+
+Neem voor meer informatie contact op met Parcelshop Support."
+"E0012"	"Parcel is not in Unique, label not attached"	"Dialogue box"	"Invalid parcel ID"	"The parcel can only be handled by GLS if a label is attached to it.
+
+Ask the sender to attach a label to the parcel."	"Ungültige Paket ID"	"Das Paket kann nur angenommen werden, wenn ein Label angebracht wurde.
+
+Bitte fordern Sie den Kunden auf das Label anzubringen."	"ID de colis invalide"	"Le colis ne peut être pris en charge par GLS que si une étiquette y est attachée.
+
+Demandez à l'expéditeur de coller une étiquette sur le colis."	"Ongeldige pakket-ID"	"Het pakket kan alleen worden geaccepteerd als er een label aan is bevestigd.
+
+Vraag de klant om het label te bevestigen."
+"E0013"	"Parcel ID contains symbols etc."	"Show below input field"	"Input contains invalid characters"	"Input contains invalid characters.
+Must only contain numbers or letters (0-9 and A-Z)."	"Eingabe enthält ungültige Zeichen"	"Die Eingabe enthält ungültige Zeichen.
+
+Gültig sind nur Zahlen und Buchstaben (0-9 und A-Z)"	"L'entrée contient des caractères non valides"	"L'entrée contient des caractères non valides.
+
+Ne doit contenir que des chiffres ou des lettres (0-9 et A-Z)."	"Invoer bevat ongeldige tekens"	"Invoer bevat ongeldige tekens.
+
+Mag alleen cijfers of letters bevatten (0-9 en A-Z)."
+"E0014"	"Label can not be reprinted"	"Dialogue box"	"Label is missing"	"The parcel can only be handled by GLS if a label is attached to it.
+
+Ask the sender to attach a label to the parcel."	"Das Label muss angebracht werden"	"Das Paket kann nur angenommen werden, wenn ein Label angebracht wurde.
+
+Bitte fordern Sie den Kunden auf das Label anzubringen."	"L'étiquette est manquante"	"Le colis ne peut être accepté que si une étiquette a été jointe.
+
+Veuillez demander au client d'apposer l'étiquette."	"Etiket ontbreekt"	"Het pakket kan alleen worden geaccepteerd als er een label aan is bevestigd.
+
+Vraag de klant om het label te bevestigen."
+"E0015"	"Is not length of 12 (numerical)"	"Dialogue box"	"Invalid parcel ID"	"Invalid input.
+
+Please make sure to enter a correct parcel ID. 
+
+For more information please contact parcelshop support."	"Ungültige Paket ID"	"Die Eingabe ist ungültig.
+
+Prüfen Sie ob eine valide Paketnummer eingegeben wurde. 
+
+Bitte kontaktieren Sie den Paketshop Support für weitere Hilfe."	"ID de colis invalide"	"Entrée invalide.
+
+Veuillez vous assurer d'entrer un ID de colis correct.
+
+Pour plus d'informations, veuillez contacter l'assistance parcelshop."	"Ongeldige pakket-ID"	"Ongeldige invoer.
+
+Zorg ervoor dat u een correct pakket-ID invoert.
+
+Neem voor meer informatie contact op met Parcelshop Support."
+"E0016"	"Checkdigit not ok"	"Dialogue box"	"Invalid parcel ID"	"Invalid input.
+
+Please make sure to enter a correct parcel ID. 
+
+For more information please contact parcelshop support."	"Ungültige Paket ID"	"Die Eingabe ist ungültig.
+
+Prüfen Sie ob eine valide Paketnummer eingegeben wurde. 
+
+Bitte kontaktieren Sie den Paketshop Support für weitere Hilfe."	"ID de colis invalide"	"Entrée invalide.
+
+Veuillez vous assurer d'entrer un ID de colis correct.
+
+Pour plus d'informations, veuillez contacter l'assistance parcelshop."	"Ongeldige pakket-ID"	"Ongeldige invoer.
+
+Zorg ervoor dat u een correct pakket-ID invoert.
+
+Neem voor meer informatie contact op met Parcelshop Support."
+"E0017"	"Track ID cannot be converted to a TU number"	"show below input field"	"Invalid track ID"	"Invalid input.
+
+Please make sure to enter a correct track ID. 
+
+For more information please contact parcelshop support."	"Ungültige Track ID"	"Die Eingabe ist ungültig.
+
+Stellen Sie sicher, dass eine valide Track-ID eingegeben wurde. 
+
+Bitte kontaktieren Sie den Paketshop Support für weitere Hilfe."	"Track-ID non valide"	"Entrée invalide.
+
+Assurez-vous d'entrer un Track-ID correct.
+
+Pour plus d'informations, veuillez contacter l'assistance parcelshop."	"Ongeldige track-ID"	"Ongeldige invoer.
+
+Zorg ervoor dat u een juiste track-ID invoert.
+
+Neem voor meer informatie contact op met Parcelshop Support."
+"E0018"	"Parcel already in warehouse"	"Dialogue box"	"Parcel already in warehouse"	"The parcel is currently already inside your warehouse.
+
+It cannot be accepted another time."	"Paket bereits in Lagerliste"	"Das Paket befindet sich bereits auf Ihrer Lagerliste.
+
+
+Es kann kein weiteres mal angenommen werden."	"Colis déjà en entrepôt"	"Le colis est actuellement déjà dans votre entrepôt.
+
+Il ne peut pas être accepté une autre fois."	"Pakket al op voorraadlijst"	"Het pakket staat al op je voorraadlijst.
+
+
+Het kan niet meer worden geaccepteerd."
+"E0019"	"Service and product combination not allowed for Driver"	"Dialogue box"	"Service not allowed"	"This type of service can not be accepted by a parcelshop.
+
+It is not included in the list of allowed services when provided by a driver."	"Service nicht erlaubt"	"Das Paket kann nicht angenommen werden.
+
+Annahme des Pakets mit diesem Service ist nicht erlaubt, wenn es vom Fahrer bereitgestellt wird."	"Prestation non autorisée"	"Le colis ne peut pas être accepté.
+
+La réception du colis avec ce service n'est pas autorisée s'il est fourni par le chauffeur."	"Dienstverlening niet toegestaan"	"Het pakket kan niet worden geaccepteerd.
+
+Het in ontvangst nemen van het pakket met deze service is niet toegestaan als dit door de chauffeur wordt verzorgd."
+"E0020"	"Scanned code needs to be Data Matrix OR 1D Barcode in FROM DRIVER process"	"Dialogue box"	"Unknown parcel ID"	"This parcel cannot be accepted.
+
+Please make sure that you scanned the correct barcode.
+
+Please contact parcelshop support if this issue persists."	"Unbekannte Paket ID"	"Der Barcode konnte nicht gelesen werden.
+
+Bitte stellen Sie sicher, dass der richtige Barcode gescannt wurde.
+
+Bitte kontaktieren Sie den Paketshop Support für weitere Hilfe."	"ID de colis inconnu"	"Ce colis ne peut pas être accepté.
+
+Assurez-vous d'avoir scanné le bon code-barres.
+
+Veuillez contacter l'assistance parcelshop si ce problème persiste."	"Onbekend pakket-ID"	"Dit pakket kan niet worden geaccepteerd.
+
+Zorg ervoor dat u de juiste streepjescode hebt gescand.
+
+Neem contact op met Parcelshop Support als dit probleem zich blijft voordoen."
+"E0021"	"1D Barcode is not length of 12 (numerical)"	"Dialogue box"	"Invalid parcel ID"	"The scanned Barcode is invalid.
+
+Please make sure to scan a code from a GLS label only. 
+
+For more information please contact parcelshop support."	"Ungültige Paket ID"	"Der gescannte Barcode ist ungültig.
+
+Prüfen Sie ob eine valide Paketnummer von einem GLS-Label gescannt wurde. 
+
+Bitte kontaktieren Sie den Paketshop Support für weitere Hilfe."	"ID de package non valide"	"Le code-barres scanné n'est pas valide.
+
+Vérifiez si un numéro de colis valide a été scanné à partir d'une étiquette GLS.
+
+Veuillez contacter l'assistance Parcelshop pour obtenir de l'aide."	"Ongeldige pakket-ID"	"De gescande streepjescode is ongeldig.
+
+Controleer of er een geldig pakketnummer van een GLS-label is gescand.
+
+Neem contact op met Parcelshop Support voor verdere assistentie."
+"E0022"	"Parcel ID not in Unique"	"Dialogue box"	"Unknown parcel ID"	"Unknown parcel ID.
+
+Information about this parcel can not be verified. 
+
+For more information please contact parcelshop support."	"Unbekannte Paket ID"	"Unbekannte Paket ID.
+
+Informationen zu diesem Paket können nicht bestätigt werden.
+
+Bitte kontaktieren Sie den Paketshop Support für weitere Hilfe."	"ID de package inconnu"	"ID de paquet inconnu.
+
+Les informations sur ce package ne peuvent pas être confirmées.
+
+Veuillez contacter l'assistance Parcelshop pour obtenir de l'aide."	"Onbekend pakket-ID"	"Onbekend pakket-ID.
+
+Informatie over dit pakket kan niet worden bevestigd.
+
+Neem contact op met Parcelshop Support voor verdere assistentie."
+"E0023"	"Parcel not in transit state"	"Dialogue box"	"State of parcel is invalid"	"Status of parcel is invalid.
+
+For more information please contact parcelshop support."	"Status des Paketes ist ungültig"	"Der Status des Pakets ist nicht erlaubt.
+
+Das Paket befindet sich nicht mehr in der Zustellung und darf nicht angenommen werden.
+
+Bitte kontaktieren Sie den Paketshop Support für weitere Hilfe."	"L'état du colis n'est pas valide"	"Le statut du paquet n'est pas autorisé.
+
+Le colis n'est plus livré et ne doit pas être accepté.
+
+Veuillez contacter l'assistance Parcelshop pour obtenir de l'aide."	"Pakketstatus is ongeldig"	"De status van het pakket is niet toegestaan.
+
+Het pakket wordt niet meer bezorgd en mag niet worden aangenomen.
+
+Neem contact op met Parcelshop Support voor verdere assistentie."
+"E0024"	"Is not length of 11 or 12 (numerical)"	"Dialogue box"	"Invalid parcel ID"	"Invalid input.
+
+Please make sure to enter a correct parcel ID. 
+
+For more information please contact parcelshop support."	"Ungültige Paket ID"	"Die Eingabe ist ungültig.
+
+Prüfen Sie ob eine valide Paketnummer eingegeben wurde. 
+
+Bitte kontaktieren Sie den Paketshop Support für weitere Hilfe."	"ID de colis invalide"	"Entrée invalide.
+
+Veuillez vous assurer d'entrer un ID de colis correct.
+
+Pour plus d'informations, veuillez contacter l'assistance parcelshop."	"Ongeldige pakket-ID"	"Ongeldige invoer.
+
+Zorg ervoor dat u een correct pakket-ID invoert.
+
+Neem voor meer informatie contact op met Parcelshop Support."
+"E0025"	"Is not length of 9 (alphanumerical)"	"Dialogue box"	"Invalid notification card ID"	"Invalid input.
+
+Please make sure to enter a correct notification card ID. 
+
+For more information please contact parcelshop support."	"Ungültige Benachrichtigungskartennummer"	"Die Eingabe ist ungültig.
+
+Prüfen Sie ob eine valide Benachrichtigungskartennummer eingegeben wurde. 
+
+Bitte kontaktieren Sie den Paketshop Support für weitere Hilfe."	"ID de numéro de carte de notification non valide"	"L'entrée est invalide.
+
+Vérifiez si un numéro de carte de notification valide a été saisi.
+
+Veuillez contacter l'assistance Parcelshop pour obtenir de l'aide."	"Ongeldig meldingskaartnummer"	"De invoer is ongeldig.
+
+Controleer of er een geldig meldingskaartnummer is ingevoerd.
+
+Neem contact op met Parcelshop Support voor verdere assistentie."
+"E0026"	"Parcel not in warehouse"	"Dialogue box"	"Parcel not in warehouse"	"The parcel is currently not inside your warehouse.
+
+This parcel was not yet handed over by a GLS driver.
+
+For more information please contact parcelshop support."	"Paket nicht in der Lagerliste"	"Das Paket befindet sich nicht auf Ihrer Lagerliste.
+
+Das Paket wurde noch nicht von einem Fahrer an Sie übergeben.
+
+Bitte kontaktieren Sie den Paketshop Support für weitere Hilfe."	"Colis pas en stock liste"	"Le colis n'est pas sur votre liste de stock.
+
+Le colis ne vous a pas encore été remis par un chauffeur.
+
+Veuillez contacter l'assistance Parcelshop pour obtenir de l'aide."	"Pakket niet in voorraadlijst"	"Het pakket staat niet op uw voorraadlijst.
+
+Het pakket is nog niet door een chauffeur aan u overhandigd.
+
+Neem contact op met Parcelshop Support voor verdere assistentie."
+"E0027"	"Content of data matrix invalid in Autoscanner"	"Dialogue box"	"Unknown barcode content"	"The barcode could not be read.
+
+Please make sure that you scanned the correct barcode."	"Inhalt des Barcodes unbekannt"	"Der Barcode konnte nicht gelesen werden.
+
+Bitte stellen Sie sicher, dass der richtige Barcode gescannt wurde."	"Contenu de code-barres inconnu"	"Le code-barres n'a pas pu être lu.
+
+Assurez-vous d'avoir scanné le bon code-barres."	"Onbekende barcode-inhoud"	"De streepjescode kon niet worden gelezen.
+
+Zorg ervoor dat u de juiste streepjescode hebt gescand."
+"E0028"	"Content of QR Code could not be read in Autoscanner"	"Dialogue box"	"Unknown QR Code"	"The QR Code could not be read.
+
+Please try manual input."	"QR Code nicht lesbar"	"Der QR-Code konnte nicht gelesen werden.
+
+Bitte versuchen Sie es mit der manuellen Eingabe."	"QR Code illisible"	"Le code QR n'a pas pu être lu.
+
+Veuillez essayer de le saisir manuellement."	"QR-code niet leesbaar"	"De QR-code kon niet worden gelezen.
+
+Probeer het handmatig in te voeren."
+"E0029"	"Track ID on Notification Card ID is not length of 6"	"Dialogue box"	"Invalid Track ID on Notification Card is."	"Invalid Track ID.
+
+Please make sure to scan a correct notification card Track ID. 
+
+For more information please contact parcelshop support."	"Ungültige Benachrichtigungskartennummer"	"Ungültige Track ID.
+
+Prüfen Sie ob eine valide Benachrichtigungskartennummer gescannt wurde. 
+
+Bitte kontaktieren Sie den Paketshop Support für weitere Hilfe."	"Numéro de carte de notification invalide"	"ID de piste non valide.
+
+Vérifiez si un numéro de carte de notification valide a été scanné.
+
+Veuillez contacter l'assistance Parcelshop pour obtenir de l'aide."	"Ongeldig meldingskaartnummer"	"Ongeldige track-ID.
+
+Controleer of er een geldig meldingskaartnummer is gescand.
+
+Neem contact op met Parcelshop Support voor verdere assistentie."
+"E0030"	"State is CANCEL"	"Dialogue box"	"Invalid Parcel Status"	"Status of parcel is invalid.
+
+This parcel has already been canceled.
+
+For more information please contact parcelshop support."	"Status des Paketes ist ungültig"	"Status des Paketes ist ungültig.
+
+Dieses Paket wurde bereits storniert.
+
+Bitte kontaktieren Sie den Paketshop Support für weitere Hilfe."	"L'état du colis n'est pas valide"	"L'état du colis n'est pas valide.
+
+Ce forfait a déjà été annulé.
+
+Veuillez contacter l'assistance Parcelshop pour obtenir de l'aide."	"Pakketstatus is ongeldig"	"Pakketstatus is ongeldig.
+
+Dit pakket is al geannuleerd.
+
+Neem contact op met Parcelshop Support voor verdere assistentie."
+"E0031"	"State TO Customer, Delivered or Final"	"Dialogue box"	"Invalid Parcel Status"	"Status of parcel is invalid.
+
+This parcel has already been delivered to the customer.
+
+For more information please contact parcelshop support."	"Status des Paketes ist ungültig"	"Status des Paketes ist ungültig.
+
+Dieses Paket wurde bereits an den Kunden übergeben.
+
+Bitte kontaktieren Sie den Paketshop Support für weitere Hilfe."	"L'état du colis n'est pas valide"	"L'état du colis n'est pas valide.
+
+Ce colis a déjà été remis au client.
+
+Veuillez contacter l'assistance Parcelshop pour obtenir de l'aide."	"Pakketstatus is ongeldig"	"Pakketstatus is ongeldig.
+
+Dit pakket is reeds overhandigd aan de klant.
+
+Neem contact op met Parcelshop Support voor verdere assistentie."
+"E0032"	"State is unexpected"	"Dialogue box"	"Invalid Parcel Status"	"Status of parcel is invalid.
+
+For more information please contact parcelshop support."	"Status des Paketes ist ungültig"	"Status des Paketes ist ungültig.
+
+Bitte kontaktieren Sie den Paketshop Support für weitere Hilfe."	"L'état du colis n'est pas valide"	"L'état du colis n'est pas valide.
+
+Veuillez contacter l'assistance Parcelshop pour obtenir de l'aide."	"Pakketstatus is ongeldig"	"Pakketstatus is ongeldig.
+
+Neem contact op met Parcelshop Support voor verdere assistentie."

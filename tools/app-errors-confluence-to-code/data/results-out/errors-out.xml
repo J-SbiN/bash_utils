@@ -1,0 +1,100 @@
+
+
+<string name="ifc_title_e0001">Contenu de code-barres inconnu</string>
+<string name="ifc_title_e0002">Prestation non autorisée</string>
+<string name="ifc_title_e0003">Prestation non autorisée</string>
+<string name="ifc_title_e0004">Ce colis existe déjà</string>
+<string name="ifc_title_e0005">Le colis n\'est plus valable</string>
+<string name="ifc_title_e0006">Les informations sur le colis n\'ont pas pu être lues</string>
+<string name="ifc_title_e0007">Les informations sur le colis n\'ont pas pu être lues</string>
+<string name="ifc_title_e0008">ID de colis inconnu</string>
+<string name="ifc_title_e0009">ID de colis inconnu</string>
+<string name="ifc_title_e0010">L\'étiquette doit être attachée au colis</string>
+<string name="ifc_title_e0011">Track-ID non valide</string>
+<string name="ifc_title_e0012">ID de colis invalide</string>
+<string name="ifc_title_e0013">L\'entrée contient des caractères non valides</string>
+<string name="ifc_title_e0014">L\'étiquette est manquante</string>
+<string name="ifc_title_e0015">ID de colis invalide</string>
+<string name="ifc_title_e0016">ID de colis invalide</string>
+<string name="ifc_title_e0017">Track-ID non valide</string>
+<string name="ifc_title_e0018">Colis déjà en entrepôt</string>
+<string name="ifc_title_e0019">Prestation non autorisée</string>
+<string name="ifc_title_e0020">ID de colis inconnu</string>
+<string name="ifc_title_e0021">ID de package non valide</string>
+<string name="ifc_title_e0022">ID de package inconnu</string>
+<string name="ifc_title_e0023">L\'état du colis n\'est pas valide</string>
+<string name="ifc_title_e0024">ID de colis invalide</string>
+<string name="ifc_title_e0025">ID de numéro de carte de notification non valide</string>
+<string name="ifc_title_e0026">Colis pas en stock liste</string>
+<string name="ifc_title_e0027">Contenu de code-barres inconnu</string>
+<string name="ifc_title_e0028">QR Code illisible</string>
+<string name="ifc_title_e0029">Numéro de carte de notification invalide</string>
+<string name="ifc_title_e0030">L\'état du colis n\'est pas valide</string>
+<string name="ifc_title_e0031">L\'état du colis n\'est pas valide</string>
+<string name="ifc_title_e0032">L\'état du colis n\'est pas valide</string>
+
+<string name="ifc_description_e0001">Le code-barres n\'a pas pu être lu.\nAssurez-vous d\'avoir scanné le bon code-barres.</string>
+<string name="ifc_description_e0002">Ce type de service ne peut être accepté par un point relais lorsqu\'il est fourni par un client privé.\nIl n\'est pas inclus dans la liste des services autorisés.</string>
+<string name="ifc_description_e0003">Ce type de service ne peut pas être accepté par un point relais.\nIl n\'est pas inclus dans la liste des services autorisés.</string>
+<string name="ifc_description_e0004">Un colis avec ces informations a déjà été accepté par GLS. Il ne peut pas être accepté une autre fois.\nPour plus d\'informations, veuillez contacter l\'assistance parcelshop.</string>
+<string name="ifc_description_e0005">Ce colis ne peut être accepté, il n\'est plus valable.\nL\'expéditeur doit contacter l\'émetteur de l\'étiquette pour résoudre ce problème.</string>
+<string name="ifc_description_e0006">Le code QR n\'a pas pu être lu.\nVeuillez essayer la saisie manuelle.</string>
+<string name="ifc_description_e0007">Le code-barres n\'a pas pu être lu.\nVeuillez essayer la saisie manuelle.</string>
+<string name="ifc_description_e0008">Ce colis ne peut pas être accepté.\nAssurez-vous d\'avoir scanné le bon code-barres.\nVeuillez contacter l\'assistance parcelshop si ce problème persiste.</string>
+<string name="ifc_description_e0009">Une connexion Internet est nécessaire pour vérifier ce colis.\nVeuillez vous connecter à Internet et réessayer.</string>
+<string name="ifc_description_e0010">Le colis ne peut être pris en charge par GLS que si une étiquette y est attachée.\nDemandez à l\'expéditeur de coller une étiquette sur le colis.</string>
+<string name="ifc_description_e0011">Entrée invalide.\nAssurez-vous d\'entrer l\'Track-ID à huit caractères.\nPour plus d\'informations, veuillez contacter l\'assistance parcelshop.</string>
+<string name="ifc_description_e0012">Le colis ne peut être pris en charge par GLS que si une étiquette y est attachée.\nDemandez à l\'expéditeur de coller une étiquette sur le colis.</string>
+<string name="ifc_description_e0013">L\'entrée contient des caractères non valides.\nNe doit contenir que des chiffres ou des lettres (0-9 et A-Z).</string>
+<string name="ifc_description_e0014">Le colis ne peut être accepté que si une étiquette a été jointe.\nVeuillez demander au client d\'apposer l\'étiquette.</string>
+<string name="ifc_description_e0015">Entrée invalide.\nVeuillez vous assurer d\'entrer un ID de colis correct.\nPour plus d\'informations, veuillez contacter l\'assistance parcelshop.</string>
+<string name="ifc_description_e0016">Entrée invalide.\nVeuillez vous assurer d\'entrer un ID de colis correct.\nPour plus d\'informations, veuillez contacter l\'assistance parcelshop.</string>
+<string name="ifc_description_e0017">Entrée invalide.\nAssurez-vous d\'entrer un Track-ID correct.\nPour plus d\'informations, veuillez contacter l\'assistance parcelshop.</string>
+<string name="ifc_description_e0018">Le colis est actuellement déjà dans votre entrepôt.\nIl ne peut pas être accepté une autre fois.</string>
+<string name="ifc_description_e0019">Le colis ne peut pas être accepté.\nLa réception du colis avec ce service n\'est pas autorisée s\'il est fourni par le chauffeur.</string>
+<string name="ifc_description_e0020">Ce colis ne peut pas être accepté.\nAssurez-vous d\'avoir scanné le bon code-barres.\nVeuillez contacter l\'assistance parcelshop si ce problème persiste.</string>
+<string name="ifc_description_e0021">Le code-barres scanné n\'est pas valide.\nVérifiez si un numéro de colis valide a été scanné à partir d\'une étiquette GLS.\nVeuillez contacter l\'assistance Parcelshop pour obtenir de l\'aide.</string>
+<string name="ifc_description_e0022">ID de paquet inconnu.\nLes informations sur ce package ne peuvent pas être confirmées.\nVeuillez contacter l\'assistance Parcelshop pour obtenir de l\'aide.</string>
+<string name="ifc_description_e0023">Le statut du paquet n\'est pas autorisé.\nLe colis n\'est plus livré et ne doit pas être accepté.\nVeuillez contacter l\'assistance Parcelshop pour obtenir de l\'aide.</string>
+<string name="ifc_description_e0024">Entrée invalide.\nVeuillez vous assurer d\'entrer un ID de colis correct.\nPour plus d\'informations, veuillez contacter l\'assistance parcelshop.</string>
+<string name="ifc_description_e0025">L\'entrée est invalide.\nVérifiez si un numéro de carte de notification valide a été saisi.\nVeuillez contacter l\'assistance Parcelshop pour obtenir de l\'aide.</string>
+<string name="ifc_description_e0026">Le colis n\'est pas sur votre liste de stock.\nLe colis ne vous a pas encore été remis par un chauffeur.\nVeuillez contacter l\'assistance Parcelshop pour obtenir de l\'aide.</string>
+<string name="ifc_description_e0027">Le code-barres n\'a pas pu être lu.\nAssurez-vous d\'avoir scanné le bon code-barres.</string>
+<string name="ifc_description_e0028">Le code QR n\'a pas pu être lu.\nVeuillez essayer de le saisir manuellement.</string>
+<string name="ifc_description_e0029">ID de piste non valide.\nVérifiez si un numéro de carte de notification valide a été scanné.\nVeuillez contacter l\'assistance Parcelshop pour obtenir de l\'aide.</string>
+<string name="ifc_description_e0030">L\'état du colis n\'est pas valide.\nCe forfait a déjà été annulé.\nVeuillez contacter l\'assistance Parcelshop pour obtenir de l\'aide.</string>
+<string name="ifc_description_e0031">L\'état du colis n\'est pas valide.\nCe colis a déjà été remis au client.\nVeuillez contacter l\'assistance Parcelshop pour obtenir de l\'aide.</string>
+<string name="ifc_description_e0032">L\'état du colis n\'est pas valide.\nVeuillez contacter l\'assistance Parcelshop pour obtenir de l\'aide.</string>
+
+<string name="e0001" translatable="false">E0001</string>
+<string name="e0002" translatable="false">E0002</string>
+<string name="e0003" translatable="false">E0003</string>
+<string name="e0004" translatable="false">E0004</string>
+<string name="e0005" translatable="false">E0005</string>
+<string name="e0006" translatable="false">E0006</string>
+<string name="e0007" translatable="false">E0007</string>
+<string name="e0008" translatable="false">E0008</string>
+<string name="e0009" translatable="false">E0009</string>
+<string name="e0010" translatable="false">E0010</string>
+<string name="e0011" translatable="false">E0011</string>
+<string name="e0012" translatable="false">E0012</string>
+<string name="e0013" translatable="false">E0013</string>
+<string name="e0014" translatable="false">E0014</string>
+<string name="e0015" translatable="false">E0015</string>
+<string name="e0016" translatable="false">E0016</string>
+<string name="e0017" translatable="false">E0017</string>
+<string name="e0018" translatable="false">E0018</string>
+<string name="e0019" translatable="false">E0019</string>
+<string name="e0020" translatable="false">E0020</string>
+<string name="e0021" translatable="false">E0021</string>
+<string name="e0022" translatable="false">E0022</string>
+<string name="e0023" translatable="false">E0023</string>
+<string name="e0024" translatable="false">E0024</string>
+<string name="e0025" translatable="false">E0025</string>
+<string name="e0026" translatable="false">E0026</string>
+<string name="e0027" translatable="false">E0027</string>
+<string name="e0028" translatable="false">E0028</string>
+<string name="e0029" translatable="false">E0029</string>
+<string name="e0030" translatable="false">E0030</string>
+<string name="e0031" translatable="false">E0031</string>
+<string name="e0032" translatable="false">E0032</string>
