@@ -1,0 +1,1 @@
+/home/jsabino/gls/wrk/psw/parcelshop-tools/handling-aws-profiles/aws_custom_functions.sh
