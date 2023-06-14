@@ -91,14 +91,6 @@ function __set_proxy () {
     options+="$(cat ${proxy_file_path} | sed ':a;N;$!ba;s/\n/$|^/g')"
     options+="$)"
 
-    echo $proxy_file_path
-    echo $proxy
-    echo $scheme
-    echo $port
-    echo $no_proxy
-    echo $vars_to_export
-    echo $options
-
     # export env vars
     if ! [[ "${proxy}" =~ ${options}  ]]; then
         echo -e "\e[33;1m[WARN]:\e[0m The proxy '${proxy}' is not listed on your file."
