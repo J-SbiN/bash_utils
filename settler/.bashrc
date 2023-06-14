@@ -40,12 +40,8 @@ case "$TERM" in
     xterm-color|*-256color) color_prompt=yes;;
 esac
 
-
-
-# uncomment for a colored prompt, if the terminal has the capability; turned
-# off by default to not distract the user: the focus in a terminal window
-# should be on the output of commands, not on the prompt
-#force_color_prompt=yes
+# uncomment for a colored prompt, if the terminal has the capability; turned off by
+force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
@@ -58,19 +54,8 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-# Setting PS1 and PS4
-# Including Git Branch and aws profile on PS1
-. "${HOME}/gls/bin2/loaded/aws-sh-prompt.sh"
-if [ "$color_prompt" = yes ]; then
-    PS1='\n${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[01;33m\]$(__git_ps1)\[\033[01;34m\]\[\033[01;96m$(__aws_ps1)\n\[\033[01;31m\][\t]\[\033[01;34m\]  \$\[\033[00m\] ' # __git_ps1 is defined in (/usr/lib)/git-core/git-sh-prompt [use "bash -x" to find it]
-# __aws_ps1 is defined by myself (imported just before ) 
-else
-    PS1='\n${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[01;33m\]$(__git_ps1)\[\033[01;34m\] \[\033[01;94m$(__aws_ps1)\n\[\033[01;31m\][\t]\[\033[01;34m\]  \$\[\033[00m\] ' # __git_ps1 is defined in (/usr/lib)/git-core/git-sh-prompt [use "bash -x" to find it]
-fi
-
-export PS4='# ${BASH_SOURCE}:${LINENO}: ${FUNCNAME[0]}() - [${SHLVL},${BASH_SUBSHELL},$?] '
-
-unset color_prompt force_color_prompt
+# colored GCC warnings and errors
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
@@ -81,6 +66,30 @@ xterm*|rxvt*)
     ;;
 esac
 
+
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+
+### Custom STUFF
+##################
+
+# loaded functions
+CUSTOM_FUNCTIONS_DIR="${HOME}/.parcelshop-tools/loaded"
+for file_name in $(ls ${CUSTOM_FUNCTIONS_DIR}); do
+        . "${CUSTOM_FUNCTIONS_DIR}/${file_name}"
+done
+
+
+
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
@@ -93,21 +102,18 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# colored GCC warnings and errors
-export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-
-
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+# Setting PS1 and PS4
+# Including Git Branch and aws profile on PS1
+if [ "$color_prompt" = yes ]; then
+    PS1='\n${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[01;33m\]$(__git_ps1)\[\033[01;34m\]\[\033[01;96m$(__aws_ps1)\n\[\033[01;31m\][\t]\[\033[01;34m\]  \$\[\033[00m\] ' # __git_ps1 is defined in (/usr/lib)/git-core/git-sh-prompt [use "bash -x" to find it]
+# __aws_ps1 is defined by myself (imported in this file) 
+else
+    PS1='\n${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[01;33m\]$(__git_ps1)\[\033[01;34m\] \[\033[01;94m$(__aws_ps1)\n\[\033[01;31m\][\t]\[\033[01;34m\]  \$\[\033[00m\] ' # __git_ps1 is defined in (/usr/lib)/git-core/git-sh-prompt [use "bash -x" to find it]
 fi
+# setting PS4
+export PS4='# ${BASH_SOURCE}:${LINENO}: ${FUNCNAME[0]}() - [${SHLVL},${BASH_SUBSHELL},$?] '
+unset color_prompt force_color_prompt
+
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -120,7 +126,11 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export DISPLAY=$(ip route list default | awk '{print $3}'):0
+# Setting a ptoxy
+
+
+# export DISPLAY=$(ip route list default | awk '{print $3}'):0
+export DISPLAY=":0"
 export LIBGL_ALWAYS_INDIRECT=1
 
 # GLS DevOps configs
@@ -131,12 +141,22 @@ PATH="${GLS_HOME}/bin2:${PATH}"
 # GLS AWS configs
 export AWS_DEFAULT_REGION='eu-central-1'
 complete -C '/usr/local/bin/aws_completer' aws
+PATH="${HOME}/.local/bin:${PATH}"
 
 # TF configs
 PATH="${HOME}/bin:${PATH}"
-complete -C /usr/bin/terraform terraform
+
+# Parcelshop Tools
+#PATH="${PATH}:${HOME}/.parcelshop-tools/pathed"
+
+
+# Node config
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
+complete -C /usr/bin/terraform terraform
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
