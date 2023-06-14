@@ -1,8 +1,8 @@
 
 function __print_proxy () {
-    local PROXY_ENV_VARS="$(env | grep -E '(http_proxy|https_proxy|HTTP_PROXY|HTTPS_PROXY|no_proxy|NO_PROXY)')"
-    session_vars="$(compgen -v | grep -E '(http_proxy|https_proxy|HTTP_PROXY|HTTPS_PROXY|no_proxy|NO_PROXY)' | while read line; do echo $line=${!line};done)"
-    if [ -z "${PROXY_ENV_VARS}" ]; then
+    local proxy_env_vars="$(env | grep -E '(http_proxy|https_proxy|HTTP_PROXY|HTTPS_PROXY|no_proxy|NO_PROXY)' | sort)"
+    local session_vars="$(compgen -v | grep -E '(http_proxy|https_proxy|HTTP_PROXY|HTTPS_PROXY|no_proxy|NO_PROXY)' | while read line; do echo $line=${!line};done)"
+    if [ -z "${proxy_env_vars}" ]; then
         echo "You have no proxy variables configured on your environment."
         if ! [ -z "${session_vars}" ]; then
             echo "But you do have the following variables in your session:"
@@ -10,7 +10,7 @@ function __print_proxy () {
         fi
     else
         echo "Your proxy configuration is:"
-        echo -e "${PROXY_ENV_VARS}"
+        echo -e "${proxy_env_vars}"
     fi
 }
 
@@ -92,9 +92,9 @@ function __set_proxy () {
     options+="$)"
 
     # export env vars
-    if ! [[ "${proxy}" =~ ${options}  ]]; then
+    if [[ -f ${proxy_file_path} ]]  &&  [[ ! "${proxy}" =~ ${options}  ]]; then
         echo -e "\e[33;1m[WARN]:\e[0m The proxy '${proxy}' is not listed on your file."
-        echo "You are on your own. Proceeding"
+        echo "You are on your own. Proceeding..."
     fi
 
     # TODO: separate http from https
