@@ -1,8 +1,8 @@
 
 function __print_proxy () {
-    local PROXY_ENV_VARS="$(env | grep -E '(http_proxy|https_proxy|HTTP_PROXY|HTTPS_PROXY|no_proxy|NO_PROXY)')"
-    session_vars="$(compgen -v | grep -E '(http_proxy|https_proxy|HTTP_PROXY|HTTPS_PROXY|no_proxy|NO_PROXY)' | while read line; do echo $line=${!line};done)"
-    if [ -z "${PROXY_ENV_VARS}" ]; then
+    local proxy_env_vars="$(env | grep -E '(http_proxy|https_proxy|HTTP_PROXY|HTTPS_PROXY|no_proxy|NO_PROXY)' | sort)"
+    local session_vars="$(compgen -v | grep -E '(http_proxy|https_proxy|HTTP_PROXY|HTTPS_PROXY|no_proxy|NO_PROXY)' | while read line; do echo $line=${!line};done)"
+    if [ -z "${proxy_env_vars}" ]; then
         echo "You have no proxy variables configured on your environment."
         if ! [ -z "${session_vars}" ]; then
             echo "But you do have the following variables in your session:"
@@ -10,7 +10,7 @@ function __print_proxy () {
         fi
     else
         echo "Your proxy configuration is:"
-        echo -e "${PROXY_ENV_VARS}"
+        echo -e "${proxy_env_vars}"
     fi
 }
 
@@ -35,10 +35,10 @@ function __set_proxy () {
     while :; do
         case $1 in
             -h|-\?|--help|help)
-                _help    # Display a usage synopsis.
+                __set_proxy_help    # Display a usage synopsis.
                 return  0
                 ;;
-            -f|--proxy-file-path)       # Takes an option argument; ensure it has been specified.
+            -f|--config-file-path)       # Takes an option argument; ensure it has been specified.
                 if [ "$2" ]; then
                     proxy_file_path=${2}
                     shift
@@ -47,7 +47,7 @@ function __set_proxy () {
                     return 1
                 fi
                 ;;
-            --proxy-file-path=?*)
+            --config-file-path=?*)
                 proxy_file_path=${1#*=} # Delete everything up to "=" and assign the remainder.
                 ;;
             --proxy_file_path=)         # Handle the case of an empty --config_file_path=
@@ -69,11 +69,11 @@ function __set_proxy () {
     local proxy="${1}"
 
     # Input Validation
-    if [[ -z ${proxy_file_path} ]]; then
+    if ! [ "${proxy_file_path}" ]; then
         proxy_file_path="${default_proxy_file_path}"
         echo -e "\e[33;1m[WARN]:\e[0m No proxys file provided... Using default '${proxy_file_path}'."
     fi
-    if [[ -z ${proxy} ]]; then
+    if ! [ "${proxy}" ]; then
     	proxy="${default_proxy}"
     	echo -e "\e[33;1m[WARN]:\e[0m No proxy argument provided. Using default '${proxy}'."
     fi
@@ -91,18 +91,10 @@ function __set_proxy () {
     options+="$(cat ${proxy_file_path} | sed ':a;N;$!ba;s/\n/$|^/g')"
     options+="$)"
 
-    echo $proxy_file_path
-    echo $proxy
-    echo $scheme
-    echo $port
-    echo $no_proxy
-    echo $vars_to_export
-    echo $options
-
     # export env vars
-    if ! [[ "${proxy}" =~ ${options}  ]]; then
+    if [[ -f ${proxy_file_path} ]]  &&  [[ ! "${proxy}" =~ ${options}  ]]; then
         echo -e "\e[33;1m[WARN]:\e[0m The proxy '${proxy}' is not listed on your file."
-        echo "You are on your own. Proceeding"
+        echo "You are on your own. Proceeding..."
     fi
 
     # TODO: separate http from https

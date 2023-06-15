@@ -15,7 +15,7 @@ PROXY_VARS_LIST="HTTP_PROXY HTTPS_PROXY NO_PROXY http_proxy https_proxy no_proxy
 ##  Defaults    
 ##############
 
-DEFAULT_PROXY_FILE_PATH="${HOME}/.parcelshop-tools/"
+DEFAULT_PROXY_FILE_PATH="${HOME}/.parcelshop-tools/data/proxy-manager/proxys-list.lst"
 
 
 #############################
@@ -29,7 +29,7 @@ DEFAULT_PROXY_FILE_PATH="${HOME}/.parcelshop-tools/"
 . ${FUNCTIONS_DIR}/help.sh
 . ${FUNCTIONS_DIR}/proxy-functions.sh
 . ${FUNCTIONS_DIR}/completion.sh
-. ${FUNCTIONS_DIR}/aliases.sh
+. ${FUNCTIONS_DIR}/alias-functions.sh
 
 
 

@@ -1,6 +1,0 @@
-
-# ignoring scripts output and input files
-**/results*/
-**/data/
-**/reports/
-**/logs/
