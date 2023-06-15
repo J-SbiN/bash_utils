@@ -1,0 +1,16 @@
+#!/bin/bash
+
+## PRESET
+SELF_DIR="$(readlink -f $(dirname "${BASH_SOURCE[0]}"))"
+. ${SELF_DIR}/../loaded/loader.sh
+
+
+#########################
+##                     ## 
+##    E X E C U T E    ##
+##                     ##
+#########################
+__set_proxy ${@}
+
+
+
