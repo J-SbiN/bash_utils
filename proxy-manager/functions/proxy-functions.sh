@@ -35,10 +35,10 @@ function __set_proxy () {
     while :; do
         case $1 in
             -h|-\?|--help|help)
-                _help    # Display a usage synopsis.
+                __set_proxy_help    # Display a usage synopsis.
                 return  0
                 ;;
-            -f|--proxy-file-path)       # Takes an option argument; ensure it has been specified.
+            -f|--config-file-path)       # Takes an option argument; ensure it has been specified.
                 if [ "$2" ]; then
                     proxy_file_path=${2}
                     shift
@@ -47,7 +47,7 @@ function __set_proxy () {
                     return 1
                 fi
                 ;;
-            --proxy-file-path=?*)
+            --config-file-path=?*)
                 proxy_file_path=${1#*=} # Delete everything up to "=" and assign the remainder.
                 ;;
             --proxy_file_path=)         # Handle the case of an empty --config_file_path=
@@ -69,11 +69,11 @@ function __set_proxy () {
     local proxy="${1}"
 
     # Input Validation
-    if [[ -z ${proxy_file_path} ]]; then
+    if ! [ "${proxy_file_path}" ]; then
         proxy_file_path="${default_proxy_file_path}"
         echo -e "\e[33;1m[WARN]:\e[0m No proxys file provided... Using default '${proxy_file_path}'."
     fi
-    if [[ -z ${proxy} ]]; then
+    if ! [ "${proxy}" ]; then
     	proxy="${default_proxy}"
     	echo -e "\e[33;1m[WARN]:\e[0m No proxy argument provided. Using default '${proxy}'."
     fi

@@ -29,7 +29,7 @@ DEFAULT_PROXY_FILE_PATH="${HOME}/.parcelshop-tools/data/proxy-manager/proxys-lis
 . ${FUNCTIONS_DIR}/help.sh
 . ${FUNCTIONS_DIR}/proxy-functions.sh
 . ${FUNCTIONS_DIR}/completion.sh
-. ${FUNCTIONS_DIR}/aliases.sh
+. ${FUNCTIONS_DIR}/alias-functions.sh
 
 
 
