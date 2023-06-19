@@ -163,5 +163,43 @@ function _set_proxy () {
         echo "You are on your own. Proceeding..."
     fi
 
+    http_proxy="${scheme}${proxy}${port}"
+    https_proxy="${http_proxy}"
+    HTTP_PROXY="${http_proxy}"
+    HTTPS_PROXY="${http_proxy}"
+    no_proxy="${avoid_proxy}"
+    NO_PROXY="${avoid_proxy}"
+
+    #export ${vars_to_export}
+
+        if [[ -v http_proxy ]]; then
+      if [[ $http_proxy != *"$proxy"* ]]; then
+         http_proxy="$http_proxy,$proxy"
+         HTTP_PROXY=$http_proxy
+      fi
+   else
+      export http_proxy="$proxy"
+      export HTTP_PROXY=$http_proxy
+   fi
+
+    if [[ -v https_proxy ]]; then
+      if [[ $https_proxy != *"$proxy"* ]]; then
+         https_proxy="$https_proxy,$proxy"
+         HTTPS_PROXY=$https_proxy
+      fi
+   else
+      export https_proxy="$proxy"
+      export HTTPS_PROXY=$https_proxy
+   fi
+
+   if [[ -v no_proxy ]]; then
+      if [[ $https_proxy != *"$proxy"* ]]; then
+         no_proxy="$no_proxy,$proxy"
+         NO_PROXY=$NO_proxy
+      fi
+   else
+      export no_proxy="$proxy"
+      export NO_PROXY=$NO_proxy
+   fi
     _add_to_proxy "${scheme}${proxy}${port}"
 }
