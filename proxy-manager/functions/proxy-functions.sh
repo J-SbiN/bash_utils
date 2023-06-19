@@ -1,12 +1,12 @@
 
-function __fetch_proxys_locally () {
+function _fetch_proxys () {
     local default_proxys_file_path="${DEFAULT_PROXYS_FILE_PATH:-"${HOME}/.parcelshop-tools/data/proxy-manager/proxys-list.lst"}"
     local proxys_file_path="${1:-${default_proxys_file_path}}"
     cat "${proxys_file_path}"
 }
 
 
-function __print_proxy () {
+function _print_proxy () {
     local proxy_env_vars="$(env | grep -E '(http_proxy|https_proxy|HTTP_PROXY|HTTPS_PROXY|no_proxy|NO_PROXY)' | sort)"
     local session_vars="$(compgen -v | grep -E '(http_proxy|https_proxy|HTTP_PROXY|HTTPS_PROXY|no_proxy|NO_PROXY)' | while read line; do echo $line=${!line};done)"
     if [ -z "${proxy_env_vars}" ]; then
@@ -23,11 +23,11 @@ function __print_proxy () {
 
 
 
-
-function __set_proxy () {
+function _set_proxy () {
     # TODO :  segregate functionalities  export != input handler
     # TODO :  instead of override: add/remove
     # TODO :  handle http_proxy, https_proxy and no_proxy separatly
+
     local default_proxy_file_path="${DEFAULT_PROXY_FILE_PATH:-"${HOME}/.parcelshop-tools/data/proxy-manager/proxys-list.lst"}"
     local default_proxy="${DEFAULT_PROXY:-"proxy.gls-group.eu"}"
     local default_scheme="${DEFAULT_SCHEME:-"http://"}"
@@ -48,9 +48,10 @@ function __set_proxy () {
     while :; do
         case $1 in
             -h|-\?|--help|help)
-                __set_proxy_help    # Display a usage synopsis.
+                _set_proxy_help    # Display a usage synopsis.
                 return  0
                 ;;
+            #------------------------------------------------------------------------------------#
             -f|--config-file-path)       # Takes an option argument; ensure it has been specified.
                 if [ "$2" ]; then
                     proxy_file_path=${2}
@@ -66,6 +67,58 @@ function __set_proxy () {
             --proxy_file_path=)         # Handle the case of an empty --config_file_path=
                 echo 'ERROR: "--config_file_path" requires a non-empty option argument.'
                 ;;
+            #------------------------------------------------------------------------------------#
+            #------------------------------------------------------------------------------------#
+            -p|--http)
+                if [ "$2" ]; then
+                    proxy_file_path=${2}
+                    shift
+                else
+                    echo 'ERROR: "--config_file_path" requires a non-empty option argument.'
+                    return 1
+                fi
+                ;;
+            --http=?*)
+                proxy_file_path=${1#*=}
+                ;;
+            --http=)
+                echo 'ERROR: "--config_file_path" requires a non-empty option argument.'
+                ;;
+            #------------------------------------------------------------------------------------#
+            #------------------------------------------------------------------------------------#
+            -s|--https)       # Takes an option argument; ensure it has been specified.
+                if [ "$2" ]; then
+                    proxy_file_path=${2}
+                    shift
+                else
+                    echo 'ERROR: "--config_file_path" requires a non-empty option argument.'
+                    return 1
+                fi
+                ;;
+            --https=?*)
+                proxy_file_path=${1#*=}
+                ;;
+            --https=)
+                echo 'ERROR: "--https" requires a non-empty option argument.'
+                ;;
+            #------------------------------------------------------------------------------------#
+            #------------------------------------------------------------------------------------#
+            -n|--no)
+                if [ "$2" ]; then
+                    proxy_file_path=${2}
+                    shift
+                else
+                    echo 'ERROR: "--no" requires a non-empty option argument.'
+                    return 1
+                fi
+                ;;
+            --no=?*)
+                proxy_file_path=${1#*=}
+                ;;
+            --no=)
+                echo 'ERROR: "--no" requires a non-empty option argument.'
+                ;;
+            #------------------------------------------------------------------------------------#
             --)              # End of all options.
                 shift
                 break
@@ -110,12 +163,5 @@ function __set_proxy () {
         echo "You are on your own. Proceeding..."
     fi
 
-    http_proxy="${scheme}${proxy}${port}"
-    https_proxy="${http_proxy}"
-    HTTP_PROXY="${http_proxy}"
-    HTTPS_PROXY="${http_proxy}"
-    no_proxy="${avoid_proxy}"
-    NO_PROXY="${avoid_proxy}"
-
-    export ${vars_to_export}
+    _add_to_proxy "${scheme}${proxy}${port}"
 }

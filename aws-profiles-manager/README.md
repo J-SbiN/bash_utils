@@ -12,3 +12,5 @@ Currently we have (at least):
 | aws_profile_unset     | aws_profile_unset                                         | Logs You out of any aws sso session and unsets all the related environment variables.                       |         
 | aws_profile_curr      | aws_profile_curr                                          | Prints out you environment variables and your aws sso session.                                              |         
 
+# How to Configure
+https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html
