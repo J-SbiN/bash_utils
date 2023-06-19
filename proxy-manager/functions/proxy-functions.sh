@@ -1,4 +1,11 @@
 
+function __fetch_proxys_locally () {
+    local default_proxys_file_path="${DEFAULT_PROXYS_FILE_PATH:-"${HOME}/.parcelshop-tools/data/proxy-manager/proxys-list.lst"}"
+    local proxys_file_path="${1:-${default_proxys_file_path}}"
+    cat "${proxys_file_path}"
+}
+
+
 function __print_proxy () {
     local proxy_env_vars="$(env | grep -E '(http_proxy|https_proxy|HTTP_PROXY|HTTPS_PROXY|no_proxy|NO_PROXY)' | sort)"
     local session_vars="$(compgen -v | grep -E '(http_proxy|https_proxy|HTTP_PROXY|HTTPS_PROXY|no_proxy|NO_PROXY)' | while read line; do echo $line=${!line};done)"
@@ -14,7 +21,13 @@ function __print_proxy () {
     fi
 }
 
+
+
+
 function __set_proxy () {
+    # TODO :  segregate functionalities  export != input handler
+    # TODO :  instead of override: add/remove
+    # TODO :  handle http_proxy, https_proxy and no_proxy separatly
     local default_proxy_file_path="${DEFAULT_PROXY_FILE_PATH:-"${HOME}/.parcelshop-tools/data/proxy-manager/proxys-list.lst"}"
     local default_proxy="${DEFAULT_PROXY:-"proxy.gls-group.eu"}"
     local default_scheme="${DEFAULT_SCHEME:-"http://"}"
@@ -97,23 +110,12 @@ function __set_proxy () {
         echo "You are on your own. Proceeding..."
     fi
 
-    # TODO: separate http from https
     http_proxy="${scheme}${proxy}${port}"
     https_proxy="${http_proxy}"
     HTTP_PROXY="${http_proxy}"
     HTTPS_PROXY="${http_proxy}"
     no_proxy="${avoid_proxy}"
     NO_PROXY="${avoid_proxy}"
-    
-    echo "export ${vars_to_export}" > "${tmp_file}" # Just a fancy way of making the variables exported in the shell session
-    . "${tmp_file}"                                 # (and not only inside the subshell running the function or the script)
-    rm "${tmp_file}"
-    __print_proxy
-}
 
-
-function __fetch_proxys () {
-    local default_proxys_file_path="${DEFAULT_PROXYS_FILE_PATH:-"${HOME}/.parcelshop-tools/data/proxy-manager/proxys-list.lst"}"
-    local proxys_file_path="${1:-${default_proxys_file_path}}"
-    cat "${proxys_file_path}"
+    export ${vars_to_export}
 }
