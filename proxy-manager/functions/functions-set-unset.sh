@@ -175,14 +175,8 @@ function _unset_proxy () {
 
 function _add_to_proxy () {
     local proxy="${1}"
+    _add_to_http_proxy "${proxy}"
     _add_to_https_proxy "${proxy}"
-    _add_to_https_proxy "${proxy}"
-}
-
-function _remove_from_proxy () {
-    local proxy="${1}"
-    _remove_from_http_proxy "${proxy}"
-    _remove_from_https_proxy "${proxy}"
 }
 
 function _add_proxy () {

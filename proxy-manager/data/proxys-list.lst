@@ -1,5 +1,7 @@
 
-proxy.gls-group.eu
-proxy.global.gls
-proxy-pt.global.gls
-proxy.nst.gls-germnay.com
+http://proxy.gls-group.eu:8080
+https://proxy.gls-group.eu:8080
+http\://proxy.global.gls:8080
+'http://proxy-pt.global.gls:8080'
+"http://proxy.nst.gls-germnay.com:8080"
+batatas

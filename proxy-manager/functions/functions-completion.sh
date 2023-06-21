@@ -1,29 +1,30 @@
 
 function __set_proxy_completion () {
-	local proxys_file_path="${PROXYS_FILE_PATH:-"${HOME}/.parcelshop-tools/data/proxy-manager/proxys-list.lst"}"
+	local proxys_file_path="${DEFAULT_PROXYS_FILE_PATH:-"${HOME}/.parcelshop-tools/data/proxy-manager/proxys-list.lst"}"
 	case ${COMP_WORDS[COMP_CWORD-1]} in
         -f|--config-file-path)
 			COMPREPLY=()
 			;;
 		*)
-            file_path_regex='^(.* )*(-f|--config-file-path) [^ ]*( .*)*$'
+            local file_path_regex='^(.* )*(-f|--proxy-file) [^ ]*( .*)*$'
             if [[ "${COMP_WORDS[@]}" =~ ${file_path_regex} ]]; then
-                proxys_file_path=$(echo "${COMP_WORDS[@]}" | sed -r 's/^(.* )*(-f|--config-file-path) ([^ ]*)( .*)*$/\3/g')
+                local proposed_proxys_file_path=$(echo "${COMP_WORDS[@]}" | sed -r 's/^(.* )*(-f|--proxy-file) ([^ ]*)( .*)*$/\3/g')
+                if [[ -f "${proposed_proxys_file_path}" ]]; then 
+                    proxys_file_path="${proposed_proxys_file_path}"
+                else
+                    return 1;
+                fi
             fi
-			local options="$(cat ${proxys_file_path})"
-    		options+=" unset help --help"
-			COMPREPLY=($(compgen -W "${options}" -- "${COMP_WORDS[COMP_CWORD]}" ))
+            local options=($(cat ${proxys_file_path}))
+            #local IFS=$'\n'
+    		options+=('unset' 'help' '--help' '-f' '--proxy-file' '-h' '--help' 'help')
+			#COMPREPLY=($(compgen -W "$(echo -e ${options[*]})" -- "${COMP_WORDS[COMP_CWORD]}" | awk '{ print "'\''"$0"'\''" }' ))
+ 			COMPREPLY=($(compgen -W "$(echo -e ${options[*]})" -- "${COMP_WORDS[COMP_CWORD]}" | sed 's/:/\\:/g' ))
 			;;
 	esac
-	case ${COMP_WORDS[COMP_CWORD]} in
-        -*)
-            local flags="-f --config-file-path -h --help help"
-            COMPREPLY=( $(compgen -W "${flags}" -- "${COMP_WORDS[COMP_CWORD]}") )
-            ;;
-    esac
 }
 complete -o bashdefault -o default -F __set_proxy_completion proxy_set
-
+# -o filenames
 
 			
 

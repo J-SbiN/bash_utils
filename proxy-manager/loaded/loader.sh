@@ -8,13 +8,11 @@
 
 ##  Statics
 #############
-SELF_DIR="$(dirname $(readlink -e "${BASH_SOURCE[0]}"))"
-FUNCTIONS_DIR="${SELF_DIR}/../functions"
-PROXY_VARS_LIST="HTTP_PROXY HTTPS_PROXY NO_PROXY http_proxy https_proxy no_proxy"
+PROXY_SELF_DIR="$(dirname $(readlink -e "${BASH_SOURCE[0]}"))"
+PROXY_FUNCTIONS_DIR="${PROXY_SELF_DIR}/../functions"
 
 ##  Defaults    
 ##############
-
 DEFAULT_PROXY_FILE_PATH="${HOME}/.parcelshop-tools/data/proxy-manager/proxys-list.lst"
 
 
@@ -26,11 +24,11 @@ DEFAULT_PROXY_FILE_PATH="${HOME}/.parcelshop-tools/data/proxy-manager/proxys-lis
 
 ##    Loading funtions    ##
 ############################
-. ${FUNCTIONS_DIR}/help.sh
-. ${FUNCTIONS_DIR}/proxy-functions.sh
-. ${FUNCTIONS_DIR}/completion.sh
-. ${FUNCTIONS_DIR}/alias-functions.sh
-
-
-
+. ${PROXY_FUNCTIONS_DIR}/functions-set-unset.sh
+. ${PROXY_FUNCTIONS_DIR}/functions-listing.sh
+. ${PROXY_FUNCTIONS_DIR}/handling-set.sh
+. ${PROXY_FUNCTIONS_DIR}/handling-listing.sh
+. ${PROXY_FUNCTIONS_DIR}/handling-input.sh
+. ${PROXY_FUNCTIONS_DIR}/functions-alias.sh
+. ${PROXY_FUNCTIONS_DIR}/functions-completion.sh
 
