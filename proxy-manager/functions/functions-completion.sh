@@ -17,7 +17,7 @@ function __set_proxy_completion () {
             fi
             local options=($(cat ${proxys_file_path}))
             #local IFS=$'\n'
-    		options+=('unset' 'help' '--help' '-f' '--proxy-file' '-h' '--help' 'help')
+    		options+=('unset' '--unset' 'help' '--help' '--proxy-file')
 			#COMPREPLY=($(compgen -W "$(echo -e ${options[*]})" -- "${COMP_WORDS[COMP_CWORD]}" | awk '{ print "'\''"$0"'\''" }' ))
  			COMPREPLY=($(compgen -W "$(echo -e ${options[*]})" -- "${COMP_WORDS[COMP_CWORD]}" | sed 's/:/\\:/g' ))
 			;;
