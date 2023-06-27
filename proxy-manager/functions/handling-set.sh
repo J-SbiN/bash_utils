@@ -3,7 +3,7 @@
 
 function _proxy_set_handler () {
     local default_proxy_file_path="${DEFAULT_PROXY_FILE_PATH:-"${HOME}/.parcelshop-tools/data/proxy-manager/proxys-list.lst"}"
-    local default_proxy="${DEFAULT_PROXY:-"proxy.gls-group.eu:8080"}"
+    local default_proxy="${DEFAULT_PROXY:-"http://proxy.gls-group.eu:8080"}"
     local default_no_proxy="${DEFAULT_NO_PROXY:-"localhost,127.0.0.1,::!"}"
 
     local proxy_file_path=""
@@ -100,10 +100,20 @@ function _proxy_set_handler () {
 
     local proxy="${1}"
 
-    # Input Validation
+
+    ## Input Validation
+    ######################
+
+    # Check Proxy File
     if ! [ "${proxy_file_path}" ]; then
         proxy_file_path="${default_proxy_file_path}"
     fi
+    if ! [[ -f "${proxy_file_path}" ]]; then
+        echo "No file proxies found. Exiting."
+        echo "For setting up a proxy regularly use 'export "https://your.proxy:0000"'."
+        return 1
+    fi
+
     if ! [ "${proxy}" ]; then
     	proxy="${default_proxy}"
     	echo -e "\e[33;1m[WARN]:\e[0m No proxy argument provided. Using default '${proxy}'."

@@ -66,7 +66,7 @@ function aws_config_file_parse {
     # parsing input
     while :; do
         case $1 in
-            -h|-\?|--help)
+            -h|--help)
                 _aws_config_file_parse_help    # Display a usage synopsis.
                 return  0
                 ;;

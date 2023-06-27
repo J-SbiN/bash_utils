@@ -1,5 +1,5 @@
 
-function __set_proxy_completion () {
+function __completion_find_proxys_from_file () {
 	local proxys_file_path="${DEFAULT_PROXYS_FILE_PATH:-"${HOME}/.parcelshop-tools/data/proxy-manager/proxys-list.lst"}"
 	case ${COMP_WORDS[COMP_CWORD-1]} in
         -f|--config-file-path)
@@ -15,15 +15,18 @@ function __set_proxy_completion () {
                     return 1;
                 fi
             fi
-            local options=($(cat ${proxys_file_path}))
             #local IFS=$'\n'
-    		options+=('unset' '--unset' 'help' '--help' '--proxy-file')
-			#COMPREPLY=($(compgen -W "$(echo -e ${options[*]})" -- "${COMP_WORDS[COMP_CWORD]}" | awk '{ print "'\''"$0"'\''" }' ))
+            local options=($(cat ${proxys_file_path}))
+    		options+=('help' '--help' '--proxy-file')
+			# COMPREPLY=($(compgen -W "$(echo -e ${options[*]})" -- "${COMP_WORDS[COMP_CWORD]}" | awk '{ print "'\''"$0"'\''" }' ))
  			COMPREPLY=($(compgen -W "$(echo -e ${options[*]})" -- "${COMP_WORDS[COMP_CWORD]}" | sed 's/:/\\:/g' ))
 			;;
 	esac
 }
-complete -o bashdefault -o default -F __set_proxy_completion proxy_set
+
+complete -o bashdefault -o default -F __completion_find_proxys_from_file proxy_set
+complete -o bashdefault -o default -F __completion_find_proxys_from_file proxy_add
+complete -o bashdefault -o default -F __completion_find_proxys_from_file proxy_trim
 # -o filenames
 
 			
