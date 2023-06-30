@@ -1,0 +1,23 @@
+{
+    "eks-dev":{
+        "name":"arn:aws:eks:eu-central-1:582955642582:cluster/eks-dev",
+        "certificate-authority-data":"cluster_certs/eks-dev",
+        "server":"https://57CBD9D83E738218F1FA62890EE3E42E.gr7.eu-central-1.eks.amazonaws.com",
+        "auth_server": "https://auth-dev.dc.gls-group.eu/auth",
+        "realm": "gls"
+    },
+    "eks-infra":{
+        "name":"arn:aws:eks:eu-central-1:582955642582:cluster/eks-infra",
+        "certificate-authority-data":"cluster_certs/eks-infra",
+        "server":"https://E435A0E4F496806F338D2E595F26026B.gr7.eu-central-1.eks.amazonaws.com",
+        "auth_server": "https://auth-qs3.dc.gls-group.eu/auth",
+        "realm": "gls"
+    },
+    "eks-stage":{
+        "name":"arn:aws:eks:eu-central-1:031060183444:cluster/eks-stage",
+        "certificate-authority-data":"cluster_certs/eks-stage",
+        "server":"https://934326CF11052918A7603B5B381BCDD6.gr7.eu-central-1.eks.amazonaws.com",
+        "auth_server": "https://auth-qs3.dc.gls-group.eu/auth",
+        "realm": "gls"
+    }
+}
