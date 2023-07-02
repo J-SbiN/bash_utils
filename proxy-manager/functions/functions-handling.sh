@@ -1,4 +1,4 @@
-function _proxy_set_input_handling () {
+function _proxy_set_handling () {
 
 [[ $* =~ ^(.* )*(--help|help)( .*)*$ ]]  && _help_proxy_set_input_handling "0"
 
@@ -72,7 +72,7 @@ function _proxy_set_input_handling () {
 
 
 
-function _proxy_list_input_handling () {
+function _proxy_list_handling () {
     local input_proxy=""
 
 
@@ -122,9 +122,7 @@ function _proxy_list_input_handling () {
 
 
 
-
-
-function _proxy_input_handling () {
+function _proxy_handling () {
     local default_http_proxy="${DEFAULT_HTTP_PROXY}"
     local default_https_proxy="${DEFAULT_HTTPS_PROXY}"
     local default_no_proxy="${DEFAULT_NO_PROXY}"
@@ -137,31 +135,32 @@ function _proxy_input_handling () {
 
     [[ $* =~ ^(.* )*(--help|help)( .*)*$ ]]  && _help_proxy_input_handling "0"
 
-    while :; do
-        case $1 in
-            #------------------------------------------------------------------------------------#
-            --set|set)
-                unset_flag="active"
-                break
-                ;;
-            #------------------------------------------------------------------------------------#
-            --unset|unset)
-                unset_flag="active"
-                break
-                ;;
-            #------------------------------------------------------------------------------------#
-            --list|list)
-                break
-                ;;
-            #------------------------------------------------------------------------------------#
-            -?*)
-                printf 'WARN: Unknown option '%s' ignored.\n' "$1" >&2
-                ;;
-            *)  # Default case: No more options, so break out of the loop.
-                break
-                ;;
-        esac
-        shift
-    done
+    case $1 in
+        #------------------------------------------------------------------------------------#
+        --set|set)
+            _proxy_set_handling "${*:2}"
+            ;;
+        #------------------------------------------------------------------------------------#
+        --append|append)
+            _proxy_set_handling "${*:2}"
+            ;;
+        #------------------------------------------------------------------------------------#
+        --remove|remove)
+            _proxy_set_handling "${*:2}"
+            ;;
+        #------------------------------------------------------------------------------------#
+        --unset|unset)
+            _proxy_set_handling "unset"
+            ;;
+        #------------------------------------------------------------------------------------#
+        --list|list)
+            _proxy_list_handling "${*:2}"
+            ;;
+        #------------------------------------------------------------------------------------#
+        *)  # anything else is unexpected
+            _help_proxy_handling "1"
+            break
+            ;;
+    esac
 
 }
