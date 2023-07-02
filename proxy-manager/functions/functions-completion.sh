@@ -63,46 +63,47 @@ complete -o bashdefault -o default -F __completion_find_proxys_from_file proxy_t
 
 
 function __completion_proxy_handling () {
-    local proxy_file_path="${DEFAULT_PROXYS_FILE_PATH:-"${HOME}/.personal-tools/data/proxy-manager/proxys-list.lst"}"
+    local proxy_file_path="${DEFAULT_PROXYS_FILE_PATH:-"${HOME}/.parcelshop-tools/data/proxy-manager/proxys-list.lst"}"
     local file_arg_regex='^.*--file [^ ]+( .*)*$'
-
+    local options=""
+    local proxies=""
+    
     if [[ "${COMP_WORDS[@]}" =~ ${file_arg_regex} ]]; then
         proxy_file_path="$(echo "${COMP_WORDS[@]}" | sed -r "s/^.*--file ([^ ]+).*$/\1/g")"
-        proxy_file_path=${proxy_file_path/#\~/${HOME}}
-    else
-        COMPREPLY=(--file)
+        proxy_file_path="${proxy_file_path/#\~/${HOME}}"
     fi
 
     case ${COMP_WORDS[COMP_CWORD-1]} in
         --file)
-            COMPREPLY=()
+            options=""
             ;;
-        --list|list)
-            local options="add current local remove  --add --current --local --remove  --file"
-            COMPREPLY+=($(compgen -W "${options}" -- "${COMP_WORDS[COMP_CWORD]}" ))
+        --list)
+            options="--add --current --delete-file --local --remove  --file"
             ;;
-        --set|set)
-            local options="http https no-proxy both  --http --https --no-proxy --both  --file"
-            COMPREPLY+=($(compgen -W "${options}" -- "${COMP_WORDS[COMP_CWORD]}" ))
+        --set)
+            options="--http --https --no-proxy --both  --file"
             ;;
-        --unset|unset)
-            local options=(http https no-proxy both all  --http --https --no-proxy --both --all  --file)
+        --unset)
+            local options=(--http --https --no-proxy --both --all  --file)
             if [[ -f ${proxy_file_path} ]]; then 
                 options+=($(cat ${proxy_file_path}))
-                COMPREPLY+=($(compgen -W "$(echo -e ${options[*]})" -- "${COMP_WORDS[COMP_CWORD]}" | sed 's/:/\\:/g' ))
             fi
             ;;
-        --http|http|--https|https|--no-proxy|no-proxy|--both|both|--append|append|--remove|remove)
-            if [[ -f ${proxy_file_path} ]]; then 
+        --http|--https|--no-proxy|--both|--append|--remove)
+            if [[ -f ${proxy_file_path} ]]; then
                 options=($(cat ${proxy_file_path}))
-                COMPREPLY+=($(compgen -W "$(echo -e ${options[*]})" -- "${COMP_WORDS[COMP_CWORD]}" | sed 's/:/\\:/g' ))
             fi
             ;;
         *)
-            local options="list set unset append remove http   --list --set --unset --append --remove  --file"
-            COMPREPLY+=($(compgen -W "${options}" -- "${COMP_WORDS[COMP_CWORD]}" ))
+            options="--list --set --unset --append --remove --both --all --http --https --no-proxy  --file"
             ;;
     esac
+
+    if [[ "${COMP_WORDS[@]}" =~ ${file_arg_regex} ]]; then
+        options="${options//--file/}"
+    fi
+
+    COMPREPLY=($(compgen -W "${options[*]}" -- "${COMP_WORDS[COMP_CWORD]}" | sed 's/:/\\:/g' ))
 }
 complete -o bashdefault -o default -F __completion_proxy_handling _proxy_handling 
 
