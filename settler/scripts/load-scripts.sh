@@ -34,6 +34,9 @@ mkdir -p "${SETTLER_PATH}" "${PATHED_PATH}" "${LOADED_PATH}"  \
     &&  echo -e "Directories in place:\n\t'${SETTLER_PATH}'\n\t'${PATHED_PATH}'\n\t'${LOADED_PATH}'"
 
 
+# just a header
+echo -e "\n\n#\n# bash settler\n################" >> "${PROFILE_FILE}"
+
 # make session load files from loaded
 cat >> ${PROFILE_FILE} << EOF
 if [ -d ${LOADED_PATH} ]; then
